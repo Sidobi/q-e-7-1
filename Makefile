@@ -79,6 +79,10 @@ ph : phlibs
 	if test -d PHonon; then \
 	( cd PHonon; $(MAKE) TLDEPS= all || exit 1) ; fi
 
+td : pwlibs
+	if test -d RTTD_Shin; then \
+	( cd RTTD_Shin; $(MAKE) TLDEPS= all || exit 1) ; fi
+
 hp : hplibs
 	if test -d HP; then \
 	( cd HP; $(MAKE) TLDEPS= all || exit 1) ; fi
@@ -161,9 +165,9 @@ gui : bindir
 	    echo ; \
 	fi
 
-pwall : pw neb ph pp pwcond acfdt
+pwall : pw neb ph pp pwcond acfdt td
 
-all   : pwall cp ld1 tddfpt hp xspectra gwl kcw
+all   : pwall cp ld1 tddfpt hp td xspectra gwl kcw
 
 ###########################################################
 # Auxiliary targets used by main targets:
@@ -292,7 +296,7 @@ clean :
 		CPV LAXlib FFTXlib XClib UtilXlib upflib Modules PP PW EPW KS_Solvers \
 		NEB ACFDT COUPLE GWW XSpectra PWCOND dft-d3 \
 		atomic LR_Modules upflib \
-		dev-tools extlibs Environ TDDFPT PHonon HP GWW Doc GUI \
+		dev-tools extlibs Environ TDDFPT RTTD_Shin PHonon HP GWW Doc GUI \
 		QEHeat KCW \
 	; do \
 	    if test -d $$dir ; then \

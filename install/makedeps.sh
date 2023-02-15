@@ -22,7 +22,7 @@ then
            KS_Solvers/Davidson KS_Solvers/Davidson_RCI KS_Solvers/CG \
 	   KS_Solvers/PPCG KS_Solvers/ParO  KS_Solvers/DENSE  KS_Solvers/RMM \
            upflib XClib Modules LR_Modules PW/src CPV/src PW/tools PP/src PWCOND/src \
-           PHonon/Gamma PHonon/PH PHonon/FD HP/src atomic/src \
+           PHonon/Gamma PHonon/PH PHonon/FD HP/src atomic/src RTTD_Shin \
            EPW/src XSpectra/src NEB/src TDDFPT/src \
            GWW/pw4gww GWW/gww GWW/head GWW/bse GWW/simple \
 	   GWW/simple_bse GWW/simple_ip QEHeat/src ACFDT/src KCW/src KCW/PP " 
@@ -87,6 +87,8 @@ for dir in $dirs; do
 	     DEPENDS="$DEPEND2 $LEVEL2/PW/src $LEVEL2/dft-d3" ;;
 	PW/tools | PWCOND/src | GWW/pw4gww | NEB/src )
 	     DEPENDS="$DEPEND2 $LEVEL2/PW/src" ;;
+	RTTD_Shin )
+	     DEPENDS="$DEPEND1 $LEVEL1/PW/src $LEVEL1/dft-d3" ;;
 	PHonon/PH )
 	     DEPENDS="$DEPEND2 $LEVEL2/PW/src $LEVEL2/LR_Modules $LEVEL2/dft-d3" ;;
 	PHonon/FD | PHonon/PH | PHonon/Gamma | HP/src | TDDFPT/src | XSpectra/src  | GIPAW/src | KCW/src )
